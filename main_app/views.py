@@ -32,9 +32,8 @@ def musicians_index(request):
 
 def musicians_detail(request, musician_id):
     musician = Musician.objects.get(id=musician_id)
-    tools = Tool.objects.exclude(id__in = musician.tool.all().values_list('id'))
     music_form = MusicForm()
-    return render(request, 'musicians/detail.html', {'musician': musician, 'music_form': music_form, 'tools': tools})
+    return render(request, 'musicians/detail.html', {'musician': musician, 'music_form': music_form})
 
 def add_music(request, musician_id):
     form = MusicForm(request.POST)

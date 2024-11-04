@@ -1,0 +1,104 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %}
+<link rel="stylesheet" href="{% static 'css/cats/cat-detail.css' %}" />
+{% endblock %} 
+{% block content %}
+<section class="cat-container">
+  <div class="cat-img">
+    
+  </div>
+  <div class="cat-details">
+    <h1>{{ musician.name }}</h1>
+    {% if musician.age > 0 %}
+      <h2>A {{ musician.age }} year old</h2>
+    {% endif %}
+    <p>{{ musician.description }}</p>
+
+    <div class="cat-actions">
+      <a href="{% url 'musician-update' musician.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'musician-delete' musician.id %}" class="btn danger">Delete</a>
+    </div>
+    
+  </div>
+</section>
+<div class="feedings-toy-container">
+  <section class="feedings">
+    <div class="subsection-title">
+      <h2>Musics</h2>
+      
+    </div>
+      <h3>Add a Music</h3>
+      <form action="{% url 'add-music' musician.id %}" method="post" class="subsection-content" autocomplete="off">
+        {% csrf_token %} 
+        {{ music_form.as_p }}
+        <button type="submit" class="btn submit">Add Music</button>
+      </form>
+    {% if musician.music_set.all.count %}
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Music name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for music in musician.music_set.all %}
+          <tr>
+            <td>{{music.date}}</td>
+            <td>{{music.music_name}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="subsection-content">
+      <p>⚠️ {{musician.name}} no music!</p>
+    </div>
+    {% endif %}
+  </section>
+
+  <section class="toys">
+    <div class="subsection-title">
+      <h2>Tools</h2>
+    </div>
+    <h3>{{ musician.name }}'s Tool</h3>
+  <div class="subsection-content">
+    {% if musician.tool.count %} 
+      {% for tool in musician.tool.all %}
+        <div class="toy-container">
+          <div class="color-block"></div>
+          <a href="{% url 'tool-detail' tool.id %}">
+            <p>{{ tool.name }}</p>
+            <form action="{% url 'remove-tool' musician.id tool.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Remove Toy</button>
+            </form>
+          </a>
+        </div>
+      {% endfor %} 
+    {% else %}
+      <p class="no-toys">{{cat.name}} doesn't have any toys!</p>
+    {% endif %}
+  </div>
+
+    <h3>Available Tools</h3>
+    <div class="subsection-content">
+    {% if tools.count %}
+      {% for tool in tools.all %}
+        <div class="toy-container">
+          <div class="color-block"></div>
+          <p>{{ tool.name }}</p>
+          <form action="{% url 'associate-tool' musician.id tool.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn submit">Use tool</button>
+          </form>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="all-toys">{{musician.name}} already use all the tools</p>
+    {% endif %}
+    </div>
+  </section>
+</div>
+{% endblock %}

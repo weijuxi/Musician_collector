@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %}
+<link rel="stylesheet" href="{% static 'css/cats/cat-index.css' %}"/>
+{% endblock %}
+{% block content %}
+
+<section class="page-header">
+  
+</section>
+
+<section class="card-container">
+  {% for mu in musicians %}
+    <div class="card">
+      <a href="/musicians/{{mu.id}}" >
+        <div class="card-content">
+          <div class="card-img-container">
+            
+          </div>
+          <h2 class="card-title">{{ mu.name }}</h2>
+          {% if mu.age > 0 %}
+          <p>A {{ mu.age }} year old</p>
+          {% endif %}
+          <p><small>{{ mu.description }}</small></p>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
