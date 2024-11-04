@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Musician Collector
+    </title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/music_logo.svg' %}" />
+    {% block title %}
+    {% endblock %}
+</head>
+<body>
+  <header>
+    <div class="header-logo-container">
+      <a href="/">
+        <p class="header-logo">Musician Collector</p>
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/musicians">Musicians</a></li>
+        <li><a href="{% url 'musician-create' %}">Add a Musician</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+   {% block content %} 
+   {% endblock %}
+   </main>
+</body>
+</html>
