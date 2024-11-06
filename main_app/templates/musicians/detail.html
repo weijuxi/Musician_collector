@@ -6,11 +6,10 @@
 {% block content %}
 <section class="cat-container">
   <div class="cat-img">
-    {% if musician.picture %}
-      <img src="{{ musician.picture }}" alt="{{ musician.name }}">
-    {% else %}
-      <p>No picture available</p>
-    {% endif %}
+    <img
+      src="{% static 'images/musician.svg' %}"
+      alt="musician"
+    />
   </div>
   <div class="cat-details">
     <h1>{{ musician.name }}</h1>

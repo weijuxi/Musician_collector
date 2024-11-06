@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 class MusicianCreate(CreateView):
     model = Musician
-    fields = ['name', 'description', 'age', 'picture']
+    fields = ['name', 'description', 'age']
     success_url = '/musicians/'
     
 class MusicianUpdate(UpdateView):
