@@ -57,48 +57,5 @@
     </div>
     {% endif %}
   </section>
-
-  <section class="toys">
-    <div class="subsection-title">
-      <h2>Tools</h2>
-    </div>
-    <h3>{{ musician.name }}'s Tool</h3>
-  <div class="subsection-content">
-    {% if musician.tool.count %} 
-      {% for tool in musician.tool.all %}
-        <div class="toy-container">
-          <div class="color-block"></div>
-          <a href="{% url 'tool-detail' tool.id %}">
-            <p>{{ tool.name }}</p>
-            <form action="{% url 'remove-tool' musician.id tool.id %}" method="post">
-              {% csrf_token %}
-              <button type="submit" class="btn btn-danger">Remove Toy</button>
-            </form>
-          </a>
-        </div>
-      {% endfor %} 
-    {% else %}
-      <p class="no-toys">{{cat.name}} doesn't have any toys!</p>
-    {% endif %}
-  </div>
-
-    <h3>Available Tools</h3>
-    <div class="subsection-content">
-    {% if tools.count %}
-      {% for tool in tools.all %}
-        <div class="toy-container">
-          <div class="color-block"></div>
-          <p>{{ tool.name }}</p>
-          <form action="{% url 'associate-tool' musician.id tool.id %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="btn submit">Use tool</button>
-          </form>
-        </div>
-      {% endfor %}
-    {% else %}
-      <p class="all-toys">{{musician.name}} already use all the tools</p>
-    {% endif %}
-    </div>
-  </section>
 </div>
 {% endblock %}
