@@ -6,7 +6,11 @@
 {% block content %}
 <section class="cat-container">
   <div class="cat-img">
-    
+    {% if musician.picture %}
+      <img src="{{ musician.picture }}" alt="{{ musician.name }}">
+    {% else %}
+      <p>No picture available</p>
+    {% endif %}
   </div>
   <div class="cat-details">
     <h1>{{ musician.name }}</h1>
@@ -40,6 +44,7 @@
         <tr>
           <th>Date</th>
           <th>Music name</th>
+          <th>Listen</th>
         </tr>
       </thead>
       <tbody>
@@ -47,6 +52,13 @@
           <tr>
             <td>{{music.date}}</td>
             <td>{{music.music_name}}</td>
+            <td>
+              {% if music.link %}
+                <a href="{{ music.link }}" target="_blank">Listen</a>
+              {% else %}
+                <span>No link available</span>
+              {% endif %}
+            </td>
           </tr>
         {% endfor %}
       </tbody>

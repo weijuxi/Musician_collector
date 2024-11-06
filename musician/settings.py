@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'musician.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'music',
+        'NAME': 'mycoolapp',
     }
 }
 

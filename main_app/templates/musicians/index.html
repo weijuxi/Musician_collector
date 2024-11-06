@@ -15,7 +15,11 @@
       <a href="/musicians/{{mu.id}}" >
         <div class="card-content">
           <div class="card-img-container">
-            
+            {% if mu.picture %}
+              <img src="{{ mu.picture }}" alt="{{ mu.name }}">
+            {% else %}
+              <p>No picture available</p>
+            {% endif %}
           </div>
           <h2 class="card-title">{{ mu.name }}</h2>
           {% if mu.age > 0 %}

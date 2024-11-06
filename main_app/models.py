@@ -8,7 +8,7 @@ class Musician(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=250)
     age = models.IntegerField()
-    
+    picture = models.ImageField(upload_to='images/', null=True, blank=True)    
     def __str__(self):
         return self.name
     
@@ -20,9 +20,9 @@ class Musician(models.Model):
 class Music(models.Model):
         date = models.DateField()
         music_name = models.CharField(max_length=100)
+        link = models.URLField(max_length=200, null=True, blank=True)
         
         musician = models.ForeignKey(Musician, on_delete=models.CASCADE)
-        
         def __str__(self):
             return self.music_name
         
