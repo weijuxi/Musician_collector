@@ -80,10 +80,12 @@ a {
   margin-bottom: 20px;
 }
 
+/* Table Styling */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  margin-top: 15px;
+  font-size: 1.1em;  /* Increase overall font size */
 }
 
 table, th, td {
@@ -91,12 +93,19 @@ table, th, td {
 }
 
 th, td {
-  padding: 10px;
+  padding: 15px;  /* Increase padding for more space */
   text-align: left;
 }
 
 th {
   background-color: #f2f2f2;
+  font-size: 1.2em;  /* Slightly larger font size for headers */
+  font-weight: bold;
+}
+
+/* Optional: Larger listen header */
+th.listen-header {
+  font-size: 1.3em;
 }
 
 .subsection-content {
