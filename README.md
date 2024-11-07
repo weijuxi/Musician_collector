@@ -1,6 +1,7 @@
 # Event Planner
 
-![Musician_collector]((image.png))
+![Musiician Collector](https://github.com/user-attachments/assets/0f2fc333-c1a4-4cd4-a789-b95bcff6f6fa)
+
 
 ## Description
 Musician Collector is an application that allows users to collect and organize musicians along with their music pieces. Each musician entry can include personal details, a picture, and links to their music so users can explore and listen to their work. This app was developed with a focus on creating an organized and interactive space for music enthusiasts.
