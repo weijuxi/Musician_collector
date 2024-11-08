@@ -27,12 +27,12 @@ This project uses the following external resources:
 - **Django**
   
 ## Technologies Used
-- **JavaScript**
+- **JavaScript** and **Python**
 - **CSS** and **HTML**
 - **Django** and **PostgreSQL**
 
 ## Next Steps
 Here are some future enhancements I plan to implement:
 - **Musician Pictures**: Allow users to upload and display pictures for each musician.
-- **Search Functionality**: Add filters and sorting for musicians based on genres, popularity, or other criteria.
+- **Search Functionality**: Add search function that can search musician's music.
 - **Music Playback**: Enable direct music playback on the website.
